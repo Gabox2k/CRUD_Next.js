@@ -24,6 +24,7 @@ export async function initDB() {
     )
   `)
 
+  //Insertar clientes en la base de datos
   await db.exec(`
     INSERT INTO clientes (nombre, email, telefono)
     VALUES

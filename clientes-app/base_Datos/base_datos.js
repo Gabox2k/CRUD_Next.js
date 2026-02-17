@@ -2,6 +2,7 @@ import sqlite from "sqlite3"
 import {open } from "sqlite3"
 import path from "path"
 
+//Se crea la base de datos 
 export async function getBD() {
     return open({
         filename: path.join (process.cwd(), "clientes.db"),
