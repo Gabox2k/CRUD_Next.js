@@ -35,6 +35,7 @@ clientes-app/
 │   ├── seed.js                         # Script para crear tablas e insertar datos iniciales
 │   ├── base_datos.js                   # Referencia alternativa (no utilizada en producción)
 │   └── clientes.db                     # Archivo de base de datos SQLite (generado)
+├── clientes-api.postman_collection.json # Colección de Postman con endpoints CRUD
 ├── package.json
 └── README.md
 ```
@@ -187,6 +188,30 @@ Elimina un cliente por su ID.
 ```json
 { "message": "cliente eliminado" }
 ```
+
+---
+
+## Colección de Postman
+
+El archivo `clientes-api.postman_collection.json` en la raíz del proyecto contiene los 4 endpoints listos para probar.
+
+### Cómo importarla
+
+1. Abre **Postman**
+2. Clic en **Import** (arriba a la izquierda)
+3. Selecciona o arrastra el archivo `clientes-api.postman_collection.json`
+4. Los endpoints quedarán disponibles en la colección **Clientes API**
+
+### Endpoints incluidos
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `GET` | `/api/clientes` | Obtiene todos los clientes |
+| `POST` | `/api/clientes` | Crea un nuevo cliente |
+| `PUT` | `/api/clientes` | Actualiza un cliente existente |
+| `DELETE` | `/api/clientes?id={id}` | Elimina un cliente por ID |
+
+> **Importante:** Asegúrate de tener el servidor corriendo en `http://localhost:3000` antes de ejecutar las peticiones en Postman.
 
 ---
 
