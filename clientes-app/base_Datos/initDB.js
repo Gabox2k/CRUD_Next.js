@@ -1,13 +1,16 @@
 import sqlite3 from "sqlite3"
-import {open} from "sqlite"
+import { open } from "sqlite"
+import path from "path"
+import { fileURLToPath } from "url"
 
-//Se abre la base de datos 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 export async function abrirDB() {
     return open({
-        filename: "./base_datos/clientes.db",
-        driver: sqlite3.Database
+        filename: path.join(__dirname, "clientes.db"),
+        driver: sqlite3.Database,
     })
-    
 }
 
 //Funcion para crear tablas
@@ -20,7 +23,9 @@ export async function initDB() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nombre TEXT NOT NULL,
       email TEXT UNIQUE NOT NULL,
-      telefono TEXT
+      telefono TEXT,
+      estado TEXT DEFAULT 'activo',
+      fecha_creacion TEXT DEFAULT CURRENT_TIMESTAMP
     )
   `)
 
@@ -34,7 +39,8 @@ export async function initDB() {
   `)
 
   console.log("tablas creadas y datos iniciales")
+  await db.close()
+  process.exit()
 }
 
-initDB();
 

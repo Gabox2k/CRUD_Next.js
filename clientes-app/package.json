@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "seed": "node --experimental-vm-modules base_datos/seed.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
