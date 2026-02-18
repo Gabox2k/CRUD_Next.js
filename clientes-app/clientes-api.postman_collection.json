@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "Clientes CRUD - Next.js",
+    "_postman_id": "12345678-1234-1234-1234-123456789000",
+    "description": "Colección CRUD para la API de clientes en Next.js",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET - Listar Clientes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/clientes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "clientes"]
+        }
+      }
+    },
+    {
+      "name": "POST - Crear Cliente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Juan Perez\",\n  \"email\": \"juan@test.com\",\n  \"telefono\": \"0981123456\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/clientes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "clientes"]
+        }
+      }
+    },
+    {
+      "name": "PUT - Editar Cliente",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"nombre\": \"Juan Modificado\",\n  \"email\": \"juanmod@test.com\",\n  \"telefono\": \"0999999999\",\n  \"estado\": \"activo\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/clientes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "clientes"]
+        }
+      }
+    },
+    {
+      "name": "DELETE - Eliminar Cliente",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/clientes?id=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "clientes"],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
