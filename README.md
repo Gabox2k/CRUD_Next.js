@@ -215,17 +215,3 @@ Elimina un cliente por su ID.
 - Botón "Eliminar" para borrar el cliente y redirigir al listado.
 
 ---
-
-## Solución de problemas comunes
-
-**Error: `no such table: clientes`**
-La base de datos no ha sido inicializada. Corre `npm run seed`.
-
-**Error: `table clientes has no column named estado`**
-La tabla fue creada con una versión vieja del schema. Borra el archivo `base_datos/clientes.db` y corre `npm run seed` de nuevo.
-
-**Error: `UNIQUE constraint failed: clientes.email`**
-El email que estás intentando registrar ya existe en la base de datos. Usa un email diferente.
-
-**La app corre pero no muestra clientes**
-Verifica que `npm run seed` haya corrido correctamente y que el archivo `clientes.db` exista en `base_datos/`.
