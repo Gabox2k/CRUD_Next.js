@@ -3,6 +3,7 @@
 import React, { useEffect, useState, use } from "react"
 import { useRouter } from "next/navigation"
 
+//Define el tipo de cliente
 type Cliente = {
   id: number
   nombre: string
@@ -12,11 +13,12 @@ type Cliente = {
   fecha_creacion?: string
 }
 
-
+//Recibi parametros de la URL 
 interface EditarClienteProps {
   params: Promise<{ clienteId: string }>
 }
 
+//Funcion para guardar lo que se edita, para controlar el estado 
 export default function EditarCliente({ params }: EditarClienteProps) {
   const { clienteId: id } = use(params)
   const [cliente, setCliente] = useState<Cliente | null>(null)
@@ -24,6 +26,8 @@ export default function EditarCliente({ params }: EditarClienteProps) {
   const router = useRouter()
 
   useEffect(() => {
+
+    //Trae los clientes de la Api 
     fetch("/api/clientes")
       .then(res => res.json())
       .then((data: Cliente[]) => {
@@ -38,6 +42,8 @@ export default function EditarCliente({ params }: EditarClienteProps) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    //Envia los datos actualizado a la Api 
     const res = await fetch("/api/clientes", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 
-// Definir el tipo de cliente 
+//Define el tipo de cliente 
 type Cliente = {
   id: number
   nombre: string
@@ -22,14 +22,14 @@ export default function Home() {
   useEffect(() => {
   const fetchClientes = async () => {
     try {
-      const res = await fetch("/api/clientes")       // Llamada a la API
-      const data = await res.json()                  // Convertir a JSON
-      console.log("Datos recibidos de la API:", data) // Ver qué devuelve
+      const res = await fetch("/api/clientes")       // Llama a la api 
+      const data = await res.json()                  // Convierte a json 
+      console.log("Datos recibidos de la Api:", data) // Ve que esta devolviendo 
 
       if (Array.isArray(data)) {
         setClientes(data)
       } else {
-        console.error("La API no devolvió un array:", data)
+        console.error("La Api no devolvio una array:", data)
         setError("No se pudieron cargar los clientes")
         setClientes([])
       }
@@ -46,7 +46,7 @@ export default function Home() {
 }, [])
 
 
-  // Filtrar por el nombre o email
+  //Se filtra por el nombre y el email 
   const clientesFiltrados = clientes.filter(c =>
     (c.nombre ?? "").toLowerCase().includes(search.toLowerCase()) ||
     (c.email ?? "").toLowerCase().includes(search.toLowerCase())

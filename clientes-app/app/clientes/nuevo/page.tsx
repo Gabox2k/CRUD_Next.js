@@ -3,14 +3,18 @@
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 
+//Funcion para guardar lo que el usuario escribe 
 export default function NuevoCliente() {
   const [nombre, setNombre] = useState("")
   const [email, setEmail] = useState("")
   const [telefono, setTelefono] = useState("")
   const router = useRouter()
 
+  //Se ejecuta cuando se envia al formulario 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    //Enviar datos al backend 
     const res = await fetch("/api/clientes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
